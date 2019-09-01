@@ -21,7 +21,7 @@ def isPresent(name):
 
 for word in readFile.read().split():  # for each word in the file, split
 
-    word = re.sub(r'[^\w\s]', '', word) # using function of regular expression library
+    word = re.sub(r'[^\w\s]', '', word)  # using function of regular expression library
 
 
     if isPresent(word):
@@ -37,13 +37,15 @@ for word in readFile.read().split():  # for each word in the file, split
    # print(word.lower())
 
     # print(count)
-for keys, values in sorted(wordDict.items()):
-    print(keys +":",values)
+newFile = open("newFile.txt", "w+")
+
+for key, values in sorted(wordDict.items()):
+    newFile.write(key + ":" + str(values) + "\n")
 
 
+   # print(key + ":" + values)
 
-newFile = ("newFile.txt", "w+")
-
+newFile = open("newFile.txt", "w+")
 
 
 
