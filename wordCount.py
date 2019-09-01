@@ -10,6 +10,7 @@ wordDict = dict()
 
 
 def populate(name, occurrence):
+    name = name.casefold()
     wordDict.update({name: occurrence})
 
 
@@ -19,7 +20,9 @@ def isPresent(name):
 
 
 for word in readFile.read().split():  # for each word in the file, split
-    word = re.sub(r'[^\w\s]', '', word)  # using function of regular expression library
+
+    word = re.sub(r'[^\w\s]', '', word) # using function of regular expression library
+
 
     if isPresent(word):
          #print(wordDict.get(word))
