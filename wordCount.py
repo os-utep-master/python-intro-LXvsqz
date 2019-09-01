@@ -3,10 +3,10 @@ val = input("Enter The File Name: ")
 
 #print(val)
 
-readFile = open(val)  # mode r is for reading
-for word in readFile.read().split(",", "."):
+readFile = open(val, "r")  # mode r is for reading
+for word in readFile.read().split():
 
-    print(word)
+    print(word.lower())
 
 newFile = ("newFile.txt", "w+")
 
