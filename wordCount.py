@@ -20,32 +20,17 @@ def isPresent(name):
 
 
 for word in readFile.read().split():  # for each word in the file, split
+    word = re.sub(r'[^\w\s]', '', word)  # sub punctuations with empty string
 
-    word = re.sub(r'[^\w\s]', '', word)  # using function of regular expression library
-
-
-    if isPresent(word):
-         #print(wordDict.get(word))
+    if isPresent(word):  # if the word is there, dont add it, just add to value
         repeated = wordDict.get(word)
         repeated += 1
-        wordDict[word] = repeated
+        wordDict[word] = repeated #set new value
 
     else:
-        populate(word, 1)
+        populate(word, 1)  # add the word
 
+newFile = open("newFile.txt", "w+")  # over-ride whats on the file
 
-   # print(word.lower())
-
-    # print(count)
-newFile = open("newFile.txt", "w+")
-
-for key, values in sorted(wordDict.items()):
-    newFile.write(key + ":" + str(values) + "\n")
-
-
-   # print(key + ":" + values)
-
-newFile = open("newFile.txt", "w+")
-
-
-
+for key, values in sorted(wordDict.items()):  # sort dictionary
+    newFile.write(key + ": " + str(values) + "\n")
