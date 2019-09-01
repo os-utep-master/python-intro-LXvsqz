@@ -1,8 +1,6 @@
 import re
 
 val = input("Enter The File Name: ")
-count = 0
-
 
 readFile = open(val, "r")  # read mode
 
